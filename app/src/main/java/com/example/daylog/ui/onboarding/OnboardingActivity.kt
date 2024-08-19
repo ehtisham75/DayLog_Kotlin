@@ -8,6 +8,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.daylog.MainActivity
 import com.example.daylog.R
 import com.example.daylog.ui.adapters.ViewPagerAdapter
+import com.example.daylog.ui.passcode.PasscodeActivity
 import me.relex.circleindicator.CircleIndicator3
 
 class OnboardingActivity : AppCompatActivity() {
@@ -29,7 +30,7 @@ class OnboardingActivity : AppCompatActivity() {
             if (currentItem < adapter.itemCount - 1) {
                 viewPager.currentItem = currentItem + 1
             } else {
-                val intent = Intent(this, MainActivity::class.java)
+                val intent = Intent(this, PasscodeActivity::class.java)
                 startActivity(intent)
                 finish()
             }

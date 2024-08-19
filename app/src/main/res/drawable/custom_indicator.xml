@@ -4,17 +4,17 @@
 
 <item android:state_selected="true">
     <shape android:shape="rectangle">
-        <size android:width="20dp" android:height="8dp" />
-        <solid android:color="@color/primary_color" />
-        <corners android:radius="4dp"/>
+        <size android:width="40dp" android:height="8dp" />
+        <solid android:color="@color/purple_20" />
+        <corners android:radius="10dp"/>
     </shape>
 </item>
 
 <item android:state_selected="false">
     <shape android:shape="rectangle">
         <size android:width="8dp" android:height="8dp" />
-        <solid android:color="@color/secondary_color" />
-        <corners android:radius="4dp"/>
+        <solid android:color="@color/purple_10" />
+        <corners android:radius="10dp"/>
     </shape>
 </item>
 

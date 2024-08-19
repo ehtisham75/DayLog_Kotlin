@@ -20,8 +20,8 @@
 
     <ImageView
         android:id="@+id/img_onboard3"
-        android:layout_width="290dp"
-        android:layout_height="290dp"
+        android:layout_width="270dp"
+        android:layout_height="270dp"
         android:scaleType="fitCenter"
         android:src="@drawable/onboard3"
         app:layout_constraintBottom_toTopOf="@+id/txt_onboard3_title"
@@ -50,7 +50,7 @@
         android:layout_height="wrap_content"
         android:text="List out your day-to-day tasks"
         android:textColor="@color/black"
-        android:textSize="18sp"
+        android:textSize="17sp"
         android:textStyle="normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
