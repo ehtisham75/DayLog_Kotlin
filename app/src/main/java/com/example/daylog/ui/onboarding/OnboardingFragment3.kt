@@ -18,12 +18,12 @@ class OnboardingFragment3 : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_onboarding3, container, false)
 
-        val getStartedButton = view.findViewById<Button>(R.id.btn_onboard3)
-        getStartedButton.setOnClickListener {
-            val intent = Intent(activity, MainActivity::class.java)
-            startActivity(intent)
-            activity?.finish() // Close OnboardingActivity
-        }
+//        val getStartedButton = view.findViewById<Button>(R.id.btn_onboard3)
+//        getStartedButton.setOnClickListener {
+//            val intent = Intent(activity, MainActivity::class.java)
+//            startActivity(intent)
+//            activity?.finish() // Close OnboardingActivity
+//        }
         return view
     }
 }

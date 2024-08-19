@@ -6,25 +6,56 @@
     android:layout_height="match_parent"
     tools:context=".ui.onboarding.OnboardingActivity">
 
-<!--    <ImageView-->
-<!--        android:id="@+id/img_onboard_bg3"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:scaleType="centerCrop"-->
-<!--        android:src="@drawable/onboard_bg"></ImageView>-->
+    <ImageView
+        android:id="@+id/img_onboard_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/onboard_bg" />
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
+    <!-- CircleIndicator3 -->
     <me.relex.circleindicator.CircleIndicator3
         android:id="@+id/indicator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="100dp" />
+        android:layout_marginBottom="150dp"
+        app:ci_drawable="@drawable/custom_indicator"
+        app:ci_height="8dp"
+        app:ci_margin="8dp"
+        app:ci_width="8dp" />
+
+    <!-- Next Button -->
+    <ImageView
+        android:id="@+id/btn_onboard_next"
+        android:layout_width="320dp"
+        android:layout_height="55dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="40dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/button" />
+
+    <!-- Next Button Text -->
+    <TextView
+        android:id="@+id/txt_btn_title_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/btn_onboard_next"
+        android:layout_alignTop="@id/btn_onboard_next"
+        android:layout_alignEnd="@id/btn_onboard_next"
+        android:layout_alignBottom="@id/btn_onboard_next"
+        android:gravity="center"
+        android:text="Next"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        android:textStyle="normal" />
 
 </RelativeLayout>
 

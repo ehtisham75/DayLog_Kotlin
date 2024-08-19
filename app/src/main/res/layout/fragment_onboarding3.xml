@@ -6,29 +6,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/img_onboard_bg3"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/onboard_bg"
-        android:scaleType="centerCrop"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        ></ImageView>
+<!--    <ImageView-->
+<!--        android:id="@+id/img_onboard_bg3"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:src="@drawable/onboard_bg"-->
+<!--        android:scaleType="centerCrop"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        />-->
 
     <ImageView
         android:id="@+id/img_onboard3"
-        android:layout_width="320dp"
-        android:layout_height="320dp"
+        android:layout_width="290dp"
+        android:layout_height="290dp"
         android:scaleType="fitCenter"
         android:src="@drawable/onboard3"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/txt_onboard3_title"
-        ></ImageView>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.7" />
 
     <TextView
         android:id="@+id/txt_onboard3_title"
@@ -38,12 +38,11 @@
         android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/img_onboard_bg3"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.743"
-        />
+        app:layout_constraintTop_toTopOf="@+id/img_onboard3"
+        app:layout_constraintVertical_bias="0.6" />
 
     <TextView
         android:id="@+id/txt_onboard3_subtitle"
@@ -59,30 +58,30 @@
         app:layout_constraintTop_toBottomOf="@+id/txt_onboard3_title"
         app:layout_constraintVertical_bias="0.02" />
 
-    <ImageView
-        android:id="@+id/btn_onboard3"
-        android:layout_width="320dp"
-        android:layout_height="320dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/button"
-        app:layout_constraintTop_toBottomOf="@+id/txt_onboard3_subtitle"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        >
-    </ImageView>
+<!--    <ImageView-->
+<!--        android:id="@+id/btn_onboard3"-->
+<!--        android:layout_width="320dp"-->
+<!--        android:layout_height="320dp"-->
+<!--        android:scaleType="fitCenter"-->
+<!--        android:src="@drawable/button"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/txt_onboard3_subtitle"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        >-->
+<!--    </ImageView>-->
 
-    <TextView
-        android:id="@+id/txt_btn3_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Next"
-        android:textColor="@color/white"
-        android:textSize="22sp"
-        android:textStyle="normal"
-        app:layout_constraintTop_toTopOf="@id/btn_onboard3"
-        app:layout_constraintBottom_toBottomOf="@id/btn_onboard3"
-        app:layout_constraintStart_toStartOf="@id/btn_onboard3"
-        app:layout_constraintEnd_toEndOf="@id/btn_onboard3"/>
+<!--    <TextView-->
+<!--        android:id="@+id/txt_btn3_title"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Next"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:textSize="22sp"-->
+<!--        android:textStyle="normal"-->
+<!--        app:layout_constraintTop_toTopOf="@id/btn_onboard3"-->
+<!--        app:layout_constraintBottom_toBottomOf="@id/btn_onboard3"-->
+<!--        app:layout_constraintStart_toStartOf="@id/btn_onboard3"-->
+<!--        app:layout_constraintEnd_toEndOf="@id/btn_onboard3"/>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
