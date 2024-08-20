@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:text="Keep Safe and Secure\nyour apps"
         android:textAlignment="center"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/img_lock"
@@ -50,7 +50,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Lockup your Diary,Keep\nyour Thoughts and\nmoments safe."
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/txt_yourDairy_yourRules"
@@ -64,19 +64,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="YOUR DAIRY, YOUR RULES"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_lockup_your_diary"
-        app:layout_constraintVertical_bias="0.3" />
+        app:layout_constraintBottom_toTopOf="@+id/last_btn_box"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
+        android:id="@+id/last_btn_box"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="10dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="10dp"
         android:orientation="horizontal"
         android:gravity="center_vertical"
         android:layout_gravity="bottom"
@@ -97,16 +98,13 @@
             android:gravity="center" />
 
         <LinearLayout
+            android:id="@+id/btn_set_passcode"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.7"
-            android:orientation="horizontal"
             android:gravity="center"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
             android:background="@drawable/white_button"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="10dp">
+            android:layout_marginStart="16dp">
 
             <TextView
                 android:id="@+id/txt_btn_set_passcode"
