@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintSet.Layout
@@ -18,7 +19,14 @@ class PasscodeActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_passcode)
 
+        val skipButton = findViewById<TextView>(R.id.btn_skip_passcode)
         val setPassCodeButton = findViewById<LinearLayout>(R.id.btn_set_passcode)
+
+        skipButton.setOnClickListener {
+            val intent = Intent(this, PasscodeQuestionActivity::class.java)
+            startActivity(intent)
+        }
+
         setPassCodeButton.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
