@@ -1,29 +1,17 @@
 package com.example.daylog.ui.passcode
 
-import android.content.Intent
 import android.os.Bundle
-import android.widget.ImageView
-import android.widget.LinearLayout
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintSet.Layout
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.daylog.MainActivity
 import com.example.daylog.R
 
-class PasscodeActivity : AppCompatActivity() {
+class SetPasscodeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_passcode)
-
-        val setPassCodeButton = findViewById<LinearLayout>(R.id.btn_set_passcode)
-        setPassCodeButton.setOnClickListener {
-            val intent = Intent(this, SetPasscodeActivity::class.java)
-            startActivity(intent)
-//            finish()
-        }
+        setContentView(R.layout.activity_set_passcode)
 
 //        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
 //            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
