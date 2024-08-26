@@ -3,4 +3,11 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <!--Array for passcode questions-->
+    <string-array name="security_questions_array">
+        <item>What is your favorite food?</item>
+        <item>What is your pet\'s name?</item>
+        <item>What was your first car?</item>
+        <item>Where were you born?</item>
+    </string-array>
 </resources>
