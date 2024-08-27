@@ -1,37 +1,35 @@
-package com.example.daylog.ui.passcode
+package com.example.daylog.ui.onboarding
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.ImageView
+import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintSet.Layout
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.daylog.MainActivity
 import com.example.daylog.R
-import com.example.daylog.ui.onboarding.WelcomeActivity
+import com.example.daylog.databinding.ActivityWelcomeBinding
 
-class PasscodeActivity : AppCompatActivity() {
+class WelcomeActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityWelcomeBinding
+    private lateinit var startButton: Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         enableEdgeToEdge()
-        setContentView(R.layout.activity_passcode)
+        binding = ActivityWelcomeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        val skipButton = findViewById<TextView>(R.id.btn_skip_passcode)
-        val setPassCodeButton = findViewById<LinearLayout>(R.id.btn_set_passcode)
+        startButton = findViewById(R.id.btn_lets_go)
 
-        skipButton.setOnClickListener {
-            val intent = Intent(this, WelcomeActivity::class.java)
+        startButton.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
-        }
-
-        setPassCodeButton.setOnClickListener {
-            val intent = Intent(this, SetPasscodeActivity::class.java)
-            startActivity(intent)
-//            finish()
         }
 
 //        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->

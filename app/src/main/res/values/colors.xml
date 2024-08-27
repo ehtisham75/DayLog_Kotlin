@@ -15,4 +15,12 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
 
+    <color name="bottom_icon_focused_color">#EA748C</color>
+    <color name="bottom_icon_un_focused_color">#808D9E</color>
+
+    <!-- Selector for bottom navigation item icon color -->
+<!--    <selector xmlns:android="http://schemas.android.com/apk/res/android">-->
+<!--        <item android:color="@color/bottom_icon_focused_color" android:state_checked="true" />-->
+<!--        <item android:color="@color/bottom_icon_un_focused_color" android:state_checked="false" />-->
+<!--    </selector>-->
 </resources>
