@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import com.example.daylog.R
 
 class AddTaskFragment : Fragment() {
@@ -16,14 +15,14 @@ class AddTaskFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_add_task, container, false)
+        val view = inflater.inflate(R.layout.fragment_add_task, container, false)
 
 //        val searchIcon = view.findViewById<ImageView>(R.id.icon_search)
 //        searchIcon.setOnClickListener {        }
 
 //        val moreIcon = view.findViewById<ImageView>(R.id.icon_more)
-//        moreIcon.setOnClickListener {        }
+//        moreIcon.setOnClickListener {  }
 
-//        return view
+        return view
     }
 }
