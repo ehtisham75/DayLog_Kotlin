@@ -24,8 +24,10 @@ class PasscodeActivity : AppCompatActivity() {
         val setPassCodeButton = findViewById<LinearLayout>(R.id.btn_set_passcode)
 
         skipButton.setOnClickListener {
-            val intent = Intent(this, WelcomeActivity::class.java)
+//            val intent = Intent(this, WelcomeActivity::class.java)
+            val intent = Intent(this, PasscodeQuestionActivity::class.java)
             startActivity(intent)
+            finish()
         }
 
         setPassCodeButton.setOnClickListener {

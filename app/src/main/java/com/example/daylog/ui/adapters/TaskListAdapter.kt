@@ -8,7 +8,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.daylog.R
 import com.example.daylog.data.modals.TaskItemData
-//import kotlinx.android.synthetic.main.task_list_item.view.*
 
 class TaskListAdapter (private val taskList: List<TaskItemData>) : RecyclerView.Adapter<TaskListAdapter.TaskViewHolder>() {
 

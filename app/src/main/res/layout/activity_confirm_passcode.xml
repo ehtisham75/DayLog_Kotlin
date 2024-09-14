@@ -9,15 +9,15 @@
     android:padding="16dp">
 
     <!-- Back Button -->
-<!--    <ImageButton-->
-<!--        android:id="@+id/btn_back"-->
-<!--        android:layout_width="40dp"-->
-<!--        android:layout_height="40dp"-->
-<!--        android:layout_gravity="start"-->
-<!--        android:layout_marginTop="16dp"-->
-<!--        android:layout_marginBottom="32dp"-->
-<!--        android:scaleType="fitCenter"-->
-<!--        android:background="@drawable/back_arrow" />-->
+    <ImageButton
+        android:id="@+id/btn_back"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="start"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="32dp"
+        android:scaleType="fitCenter"
+        android:background="@drawable/back_arrow" />
 
     <!-- Title -->
     <TextView
@@ -25,9 +25,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
-        android:layout_marginTop="95dp"
         android:gravity="center"
-        android:text="Set your PIN"
+        android:text="Confirm your PIN"
         android:textColor="@android:color/white"
         android:textSize="22sp"
         android:textStyle="bold" />
@@ -215,15 +214,14 @@
             android:backgroundTint="@color/white"
             android:background="@drawable/delete_dail"/>
     </GridLayout>
-
-
-    <TextView
-        android:id="@+id/txt_forgot_passcode"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Forgot PIN?"
-        android:textColor="@color/white"
-        android:textSize="22sp"
-        android:textStyle="bold" />
 </LinearLayout>
+
+<!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:id="@+id/main"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    tools:context=".ui.passcode.ConfirmPasscodeActivity">-->
+
+<!--</androidx.constraintlayout.widget.ConstraintLayout>-->

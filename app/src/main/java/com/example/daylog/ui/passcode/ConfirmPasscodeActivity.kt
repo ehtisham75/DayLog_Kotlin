@@ -1,23 +1,24 @@
 package com.example.daylog.ui.passcode
 
-import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.example.daylog.R
 import android.content.Context
 import android.content.Intent
+import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import com.example.daylog.R
 import com.example.daylog.data.utils.IntentKeys
 import com.example.daylog.data.utils.PrefKeys
 
-class SetPasscodeActivity : AppCompatActivity() {
+class ConfirmPasscodeActivity : AppCompatActivity() {
 
     private lateinit var backButton: ImageButton
     private lateinit var inputPin1: EditText
@@ -27,13 +28,14 @@ class SetPasscodeActivity : AppCompatActivity() {
     private lateinit var deleteButton: ImageButton
     private lateinit var numberPadButtons: List<Button>
 
+    private var originalPin: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_set_passcode)
+        setContentView(R.layout.activity_confirm_passcode)
 
-//        backButton = findViewById(R.id.btn_back)
+        backButton = findViewById(R.id.btn_back)
         inputPin1 = findViewById(R.id.input_pin_1)
         inputPin2 = findViewById(R.id.input_pin_2)
         inputPin3 = findViewById(R.id.input_pin_3)
@@ -53,8 +55,32 @@ class SetPasscodeActivity : AppCompatActivity() {
             findViewById(R.id.btn_9)
         )
 
+        originalPin = intent.getStringExtra(IntentKeys.SET_PIN_KEY)
+
+        setupBackButton()
         setupPinInput()
         setupNumberPad()
+    }
+
+    private fun setupBackButton() {
+        backButton.setOnClickListener {
+            showConfirmationDialog()
+        }
+    }
+    private fun showConfirmationDialog() {
+        val dialogBuilder = AlertDialog.Builder(this)
+        dialogBuilder.setMessage("Are you sure you want to go back? Your changes might not be saved.")
+            .setCancelable(false)
+            .setPositiveButton("Yes") { _, _ ->
+                finish()
+            }
+            .setNegativeButton("No") { dialog, _ ->
+                dialog.dismiss()
+            }
+
+        val alert = dialogBuilder.create()
+        alert.setTitle("Go Back")
+        alert.show()
     }
 
     private fun setupPinInput() {
@@ -67,7 +93,6 @@ class SetPasscodeActivity : AppCompatActivity() {
         inputPin2.addTextChangedListener(PinTextWatcher(inputPin2, inputPin3))
         inputPin3.addTextChangedListener(PinTextWatcher(inputPin3, inputPin4))
         inputPin4.addTextChangedListener(PinTextWatcher(inputPin4, null))
-
         // Set focus to the first input field when the activity starts
         inputPin1.requestFocus()
     }
@@ -76,10 +101,8 @@ class SetPasscodeActivity : AppCompatActivity() {
         for (button in numberPadButtons) {
             button.setOnClickListener { appendNumberToPinInput((it as Button).text.toString()) }
         }
-
         deleteButton.setOnClickListener { deleteLastDigit() }
     }
-
     private fun appendNumberToPinInput(number: String) {
         when {
             inputPin1.text.isEmpty() -> inputPin1.setText(number)
@@ -88,7 +111,6 @@ class SetPasscodeActivity : AppCompatActivity() {
             inputPin4.text.isEmpty() -> inputPin4.setText(number)
         }
     }
-
     private fun deleteLastDigit() {
         when {
             inputPin4.text.isNotEmpty() -> inputPin4.text.clear()
@@ -96,6 +118,31 @@ class SetPasscodeActivity : AppCompatActivity() {
             inputPin2.text.isNotEmpty() -> inputPin2.text.clear()
             inputPin1.text.isNotEmpty() -> inputPin1.text.clear()
         }
+    }
+
+    private fun verifyPin() {
+        val enteredPin = "${inputPin1.text}${inputPin2.text}${inputPin3.text}${inputPin4.text}"
+        val storedPin = originalPin
+
+        if (enteredPin == storedPin) {
+            storePinInSharedPreferences(enteredPin)
+            moveToNextActivity()
+        } else {
+            Toast.makeText(this, "Confirmed Pin not matched", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun storePinInSharedPreferences(pin: String) {
+        val sharedPref = getSharedPreferences(PrefKeys.PASSCODE_MAIN_KEY, Context.MODE_PRIVATE)
+        with(sharedPref.edit()) {
+            putString(PrefKeys.SET_PASSCODE_KEY, pin)
+            apply()
+        }
+    }
+    private fun moveToNextActivity() {
+        val intent = Intent(this, PasscodeQuestionActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 
     private inner class PinTextWatcher(
@@ -111,17 +158,9 @@ class SetPasscodeActivity : AppCompatActivity() {
         }
 
         override fun afterTextChanged(s: Editable?) {
-            val pin = "${inputPin1.text}${inputPin2.text}${inputPin3.text}${inputPin4.text}"
-            if (pin.length == 4) {
-                moveToConfirmPasscodeActivity(pin)
+            if (inputPin1.text.isNotEmpty() && inputPin2.text.isNotEmpty() && inputPin3.text.isNotEmpty() && inputPin4.text.isNotEmpty()) {
+                verifyPin()
             }
         }
-    }
-
-    private fun moveToConfirmPasscodeActivity(pin: String) {
-        val intent = Intent(this, ConfirmPasscodeActivity::class.java)
-        intent.putExtra(IntentKeys.SET_PIN_KEY, pin)
-        startActivity(intent)
-        finish()
     }
 }
